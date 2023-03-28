@@ -17,7 +17,7 @@ Fixed::Fixed(const int nb)
 
 Fixed::Fixed(const float nb)
 {
-	_value = static_cast<int>(std::roundf(nb * (1 << _fractionalBits)));
+	_value = static_cast<int>(roundf(nb * (1 << _fractionalBits)));
 }
 
 Fixed::~Fixed()
