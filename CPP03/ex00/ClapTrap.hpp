@@ -17,12 +17,15 @@ public :
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
+	std::string getName() const;
+
+
 private :
 
-	std::string	_name;
-	int			_hitPoints;
-	int			_energyPoints;
-	int			_attackDamage;
+	std::string		_name;
+	unsigned int	_hitPoints;
+	unsigned int	_energyPoints;
+	unsigned int	_attackDamage;
 };
 
 #endif

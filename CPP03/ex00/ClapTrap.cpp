@@ -7,39 +7,61 @@ ClapTrap::ClapTrap(const std::string name, int hitPoints, int energyPoints, int 
 
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
-	std::cout << "ClapTrap " << _name << " se multiplie, créant un double tout aussi sarcastique et dangereux !" << std::endl;
+	std::cout << "ClapTrap " << src._name << " se multiplie, créant un double tout aussi sarcastique et dangereux !" << std::endl;
 	*this = src;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap " << _name << " disparaît dans un nuage d'ironie et de sarcasme, laissant un vide émotionnel..." << std::endl;
+	std::cout << "ClapTrap " << _name << " disparaît dans un nuage d'ironie et de sarcasme, te laissant un vide émotionnel..." << std::endl;
 }
 
 // rhs is the object you want to copy the data from
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
-{
-	std::cout << "ClapTrap " << _name << " absorbe le sarcasme et l'humour noir de " << rhs._name << " pour se réinventer !" << std::endl;
+{	
 	_name = rhs._name;
 	_hitPoints = rhs._hitPoints;
 	_energyPoints = rhs._energyPoints;
 	_attackDamage = rhs._attackDamage;
+	std::cout << "ClapTrap " << _name << " absorbe le sarcasme et l'humour noir de " << rhs._name << " pour se réinventer !" << std::endl;
 	return *this;
 }
 
 void ClapTrap::attack(const std::string &target)
 {
-	if (_energyPoints )
-	std::cout << "ClapTrap " << _name << " attaque " << target << " une répartie cinglante, infligeant <damage> points de dégâts et laissant des cicatrices émotionnelles !"<< std::endl;
+	if (_energyPoints > 0 && _hitPoints > 0)
+	{
+		_energyPoints += 1;
+		std::cout << "ClapTrap " << _name << " attaque " << target << " avec une répartie cinglante, infligeant " << _attackDamage << " points de dégâts et laissant des cicatrices émotionnelles !"<< std::endl;
+	}
+	else
+		std::cout << "ClapTrap " << _name << " n'a pas assez d'énergie pour avoir de la répartie et faire une blague." << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	if (_hitPoints == 0)
+	{
+		std::cout << "ClapTrap " << _name << " est déjà hors service, pas la peine d'en rajouter." << std::endl;
+		return ;
+	}
+	if (_hitPoints < amount)
+		amount = _hitPoints;
+	_hitPoints -= amount;
 	std::cout << "ClapTrap " << _name << " encaisse " << amount << " points de dégâts, rigolant jaune tout en retenant quelques larmes d'amertume." << std::endl;
-
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "ClapTrap " << _name << " se répare avec " << amount << " points de vie, murmurant des plaisanteries sarcastiques pour masquer sa douleur." << std::endl;
+	if (_energyPoints > 0 && _hitPoints > 0)
+	{
+		_hitPoints += amount;
+		_energyPoints -= 1;
+		std::cout << "ClapTrap " << _name << " se répare avec " << amount << " points de vie, murmurant des plaisanteries sarcastiques pour masquer sa douleur." << std::endl;
+	}
+	else
+		std::cout << "ClapTrap " << _name << " n'a pas assez d'énergie pour se réparer." << std::endl;
 }
+
+std::string ClapTrap::getName() const { return _name; }
+
