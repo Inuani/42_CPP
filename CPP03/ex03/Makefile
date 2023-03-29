@@ -1,4 +1,4 @@
-NAME	= ScavTrap
+NAME	= diamondtrap
 
 CXX		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
@@ -12,10 +12,14 @@ OBJ_DIR = ./obj
 
 SRCS =	main.cpp \
 		ClapTrap.cpp \
-		ScavTrap.cpp
+		ScavTrap.cpp \
+		FragTrap.cpp \
+		DiamondTrap.cpp
 
 HDRS =	ClapTrap.hpp \
-		ScavTrap.hpp
+		ScavTrap.hpp \
+		FragTrap.hpp \
+		DiamondTrap.hpp
 
 OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 

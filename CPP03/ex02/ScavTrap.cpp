@@ -1,6 +1,11 @@
 #include "ScavTrap.hpp"
 #include "iostream"
 
+ScavTrap::ScavTrap() : ClapTrap("", 100, 50, 20)
+{
+	std::cout << "\033[33m" << "ScavTrap default constructor called !" << "\033[0m" << std::endl;
+}
+
 ScavTrap::ScavTrap(const std::string name) : ClapTrap(name, 100, 50, 20)
 {
 	std::cout << "\033[33m" << "ScavTrap " << name << " émerge d'une nuée de poussière, prêt à défendre cette porte minable que même un chat errant pourrait enjamber !" << "\033[0m" << std::endl;

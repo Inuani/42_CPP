@@ -1,5 +1,10 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap() : _name(), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+{
+	std::cout << "ClapTrap default constructor called." << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string name, int hitPoints, int energyPoints, int attackDamage) : _name(name), _hitPoints(hitPoints), _energyPoints(energyPoints), _attackDamage(attackDamage)
 {
 	std::cout << "ClapTrap " << _name << " apparaît en fanfare, prêt à semer le chaos avec son humour noir !" << std::endl;
@@ -19,11 +24,11 @@ ClapTrap::~ClapTrap()
 // rhs is the object you want to copy the data from
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 {	
+	// std::cout << "ClapTrap " << _name << " absorbe le sarcasme et l'humour noir de " << rhs._name << " pour se réinventer !" << std::endl;
 	_name = rhs._name;
 	_hitPoints = rhs._hitPoints;
 	_energyPoints = rhs._energyPoints;
 	_attackDamage = rhs._attackDamage;
-	std::cout << "ClapTrap " << _name << " absorbe le sarcasme et l'humour noir de " << rhs._name << " pour se réinventer !" << std::endl;
 	return *this;
 }
 
@@ -65,3 +70,32 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 std::string ClapTrap::getName() const { return _name; }
 
+unsigned int	ClapTrap::getHitPoints() const
+{
+	return _hitPoints;
+}
+
+unsigned int	ClapTrap::getEnergyPoints() const
+{
+	return _energyPoints;
+}
+
+unsigned int	ClapTrap::getAttackDamage() const
+{
+	return _attackDamage;
+}
+
+void ClapTrap::setEnergyPoints(unsigned int amount)
+{
+	_energyPoints = amount;
+}
+
+void ClapTrap::setHitPoints(unsigned int amount)
+{
+	_hitPoints = amount;
+}
+
+void ClapTrap::setAttackDamage(unsigned int amount)
+{
+	_attackDamage = amount;
+}

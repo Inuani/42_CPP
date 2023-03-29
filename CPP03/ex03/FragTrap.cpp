@@ -6,7 +6,7 @@ FragTrap::FragTrap() : ClapTrap("", 100, 100, 30)
 	std::cout << "\033[37m" << "FragTrap default constructor called !" << "\033[0m" << std::endl;
 }
 
-FragTrap::FragTrap(const std::string name) : ClapTrap(name, 100, 100, 30)
+FragTrap::FragTrap(const std::string &name) : ClapTrap(name, 100, 100, 30)
 {
 	std::cout << "\033[41m" << "FragTrap " << getName() << " est enfin là ! Prêt à vous épater avec ses talents de danse et ses blagues à deux balles." << "\033[0m" << std::endl;
 }

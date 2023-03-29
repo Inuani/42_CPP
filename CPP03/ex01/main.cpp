@@ -4,30 +4,21 @@
 
 int main( void )
 {
-    ClapTrap    clapix("Clapix", 10, 10, 2);
-    ClapTrap    clapox("Clapox", 10, 10, 4);
+    ScavTrap    scavy("Scavy");
+    ClapTrap    Clapix("Clapix", 10, 10, 0);
 
-    clapix.attack("Clapux");
+    scavy.guardGate();
 
-    clapox.takeDamage(13);
+    scavy.attack("Clapix");
+    Clapix.attack("Scavy");
 
-    clapix.beRepaired(5);
+    scavy.takeDamage(8);
+    scavy.beRepaired(4);
 
-    ClapTrap    clapux = clapox;
+    ScavTrap    scavux("Scavux");
+    scavux = scavy;
 
-    ClapTrap    clapax(clapux);
-
-    ClapTrap    Clapipox("Clapipox", 0, 10, 2);
-    Clapipox.takeDamage(1);
-
-    clapix.attack(clapox.getName());
-    clapix.attack(clapux.getName());
-
-    clapix.beRepaired(5);
-    clapox.beRepaired(3);
-
-    clapux.takeDamage(7);
-    clapax.takeDamage(5);
+    // ScavTrap    scaval(scavy);
 
     return 0;
 }

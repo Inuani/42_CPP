@@ -8,7 +8,7 @@ class ClapTrap {
 public :
 
 	ClapTrap();
-	ClapTrap(const std::string name, int hitPoints, int energyPoints, int attackDamage);
+	ClapTrap(const std::string& name, int hitPoints, int energyPoints, int attackDamage);
 	ClapTrap(const ClapTrap& src);
 	~ClapTrap();
 
@@ -19,6 +19,7 @@ public :
 	void	beRepaired(unsigned int amount);
 
 	std::string		getName() const;
+	void			setName(const std::string& name);
 	unsigned int	getHitPoints() const;
 	unsigned int	getEnergyPoints() const;
 	unsigned int	getAttackDamage() const;

@@ -7,6 +7,7 @@ class ClapTrap {
 
 public :
 
+	ClapTrap();
 	ClapTrap(const std::string name, int hitPoints, int energyPoints, int attackDamage);
 	ClapTrap(const ClapTrap& src);
 	~ClapTrap();

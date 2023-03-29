@@ -4,12 +4,12 @@
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 
 public :
 
 	ScavTrap();
-	ScavTrap(const std::string name);
+	ScavTrap(const std::string& name);
 	ScavTrap(const ScavTrap& src);
 	~ScavTrap();
 
