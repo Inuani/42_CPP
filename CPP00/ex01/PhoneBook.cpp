@@ -165,29 +165,27 @@ void	PhoneBook::searchCmd(PhoneBook& phbk) const
 		std::cout << std::endl;
 		exit(0);
 	}
-	
-	while (true)
+	std::cout << "Enter index between 0 and " << (nbContact - 1) << ": ";
+	while (getline(std::cin, input))
 	{
-		while (checkOnlyDigit(input) || std::stoi(input) < 0 || std::stoi(input) >= nbContact)
+		if (input.empty())
 		{
 			std::cout << "Enter index between 0 and " << (nbContact - 1) << ": ";
-			getline(std::cin, input);
-		}
-		if (input.empty())
-    	{
-        	std::cout << std::endl;
 			continue ;
-    	}
-    	else if (!checkOnlyDigit(input))
-    	{
-        	std::cout << "Invalid input. Please enter a valid index." << std::endl;
-    	}
-		else
-			break ;
+		}
+		else if (!checkOnlyDigit(input))
+		{
+			int index = std::stoi(input);
+			if (index >= 0 && index < nbContact)
+				break;
+		}
+		std::cout << "Enter index between 0 and " << (nbContact - 1) << ": ";
 	}
-	if (!input.empty() && checkOnlyDigit(input))
+	if (input.empty())
 	{
-		if (std::stoi(input) >= 0 && std::stoi(input) < nbContact)
-			printContact(std::stoi(input));
+		std::cout << std::endl;
+		exit(0);
 	}
+	if (std::stoi(input) >= 0 && std::stoi(input) < nbContact)
+		printContact(std::stoi(input));
 }
