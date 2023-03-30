@@ -36,12 +36,14 @@ cat > "main.cpp" <<EOF
 
 int main( void )
 {
+	return 0;
 }
 EOF
 
 # Create Class.cpp
 cat > "${CLASS_NAME}.cpp" <<EOF
 #include "${CLASS_NAME}.hpp"
+#include <iostream>
 
 ${CLASS_NAME}::${CLASS_NAME}()
 {
@@ -49,10 +51,17 @@ ${CLASS_NAME}::${CLASS_NAME}()
 
 ${CLASS_NAME}::${CLASS_NAME}(const ${CLASS_NAME} &src)
 {
+	*this = src;
 }
 
 ${CLASS_NAME}::~${CLASS_NAME}()
 {
+}
+
+${CLASS_NAME}&	${CLASS_NAME}::operator=(const ${CLASS_NAME}& rhs)
+{
+	(void)rhs;
+	return *this;
 }
 EOF
 
@@ -70,7 +79,7 @@ RESET	=   \e[0m
 
 OBJ_DIR = ./obj
 
-SRCS =	main.cpp \
+SRCS =	main.cpp \\
 		${CLASS_NAME}.cpp
 
 HDRS =	${CLASS_NAME}.hpp

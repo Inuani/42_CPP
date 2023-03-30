@@ -1,7 +1,6 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
-
 int	main( void)
 {
 	std::cout << "Welcome to your awesome phonebook !"<< std::endl;

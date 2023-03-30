@@ -2,8 +2,8 @@
 
 DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap(), _name()
 {
-	setName("_clap_name");
-	std::cout << "\033[42m" << "DiamondTrap " << getName() << " surgit des ombres. La combinaison ultime de FragTrap et ScavTrap est là pour vous effrayer !" << "\033[0m" << std::endl;
+	// setName("_clap_name");
+	std::cout << "\033[42m" << "DiamondTrap" << getName() << " surgit des ombres. La combinaison ultime de FragTrap et ScavTrap est là pour vous effrayer !" << "\033[0m" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const std::string &name) : FragTrap(), ScavTrap(), _name(name)
@@ -36,4 +36,9 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
 void DiamondTrap::whoAmI()
 {
 	std::cout << "\033[42m" << "Je suis " << getName() << " et " << _name << ", la fusion parfaite de FragTrap et ScavTrap !" << "\033[0m" << std::endl;
+}
+
+void DiamondTrap::attack(const std::string &target)
+{
+	ScavTrap::attack(target);
 }

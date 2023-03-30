@@ -1,5 +1,9 @@
 #include "Point.hpp"
 
+Point::Point() : _x(), _y()
+{
+}
+
 Point::Point(const Fixed& a, const Fixed& b) : _x(a), _y(b)
 {
 }

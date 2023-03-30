@@ -7,6 +7,7 @@ class Point {
 
 public :
 
+Point();
 Point(const Fixed& a, const Fixed& b);
 ~Point();
 

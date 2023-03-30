@@ -29,7 +29,3 @@ bool	bsp(const Point& P, const Point& A, const Point& B, const Point& C)
 		return true;
 	return false;
 }
-
-
-
-

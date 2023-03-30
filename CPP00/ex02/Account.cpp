@@ -95,18 +95,39 @@ void Account::displayStatus(void) const
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
-void	Account::_displayTimestamp(void)
+void Account::_displayTimestamp(void)
 {
-	// gives current time point from the 
-	// std::chrono::system_clock clock using now() function.
-	std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+	// Gives the current calendar time as std::time_t object
+	std::time_t now = std::time(NULL);
 
-	// takes a std::chrono::time_point object and returns a std::time_t object
-	std::time_t timePoint = std::chrono::system_clock::to_time_t(now);
+	// Calendar time broken down into year, month, day, hour, minute, second
+	std::tm *timeBroken = std::localtime(&now);
 
-	// Calendar time broken down into year, month, day, hour, minute, second.
-	std::tm timeBroken = *std::localtime(&timePoint);
-
-	// Uses std::put_time to format tm structure timeBroken into a string.
-	std::cout << "[" << std::put_time(&timeBroken, "%Y%m%d_%H%M%S") << "] ";
+	// Formats tm structure timeBroken into a string
+	std::cout	<< "[" << std::setfill('0')
+				<< std::setw(4) << timeBroken->tm_year + 1900
+				<< std::setw(2) << timeBroken->tm_mon + 1
+				<< std::setw(2) << timeBroken->tm_mday
+				<< "_"
+				<< std::setw(2) << timeBroken->tm_hour
+				<< std::setw(2) << timeBroken->tm_min
+				<< std::setw(2) << timeBroken->tm_sec
+				<< "] ";
+	// std::cout << "[19920104_091532] ";
 }
+
+// void	Account::_displayTimestamp(void)
+// {
+// 	// gives current time point from the 
+// 	// std::chrono::system_clock clock using now() function.
+// 	std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+
+// 	// takes a std::chrono::time_point object and returns a std::time_t object
+// 	std::time_t timePoint = std::chrono::system_clock::to_time_t(now);
+
+// 	// Calendar time broken down into year, month, day, hour, minute, second.
+// 	std::tm timeBroken = *std::localtime(&timePoint);
+
+// 	// Uses std::put_time to format tm structure timeBroken into a string.
+// 	std::cout << "[" << std::put_time(&timeBroken, "%Y%m%d_%H%M%S") << "] ";
+// }
