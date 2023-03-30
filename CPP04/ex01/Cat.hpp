@@ -1,11 +1,12 @@
 #include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 #ifndef Cat_HPP
 # define Cat_HPP
 
 class Cat : public Animal {
-
+	
 public:
 	Cat();
 	Cat(const Animal& src);
@@ -16,7 +17,7 @@ public:
 
 private:
 
-
+	Brain	*_brain;
 
 };
 

@@ -4,7 +4,9 @@
 # define Brain_HPP
 
 class Brain {
+
 public:
+
 	Brain();
 	Brain(const Brain& src);
 	~Brain();
@@ -13,7 +15,7 @@ public:
 
 private:
 
-
+	std::string	_ideas[100];
 
 };
 

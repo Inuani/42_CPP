@@ -2,12 +2,12 @@
 #include <iostream>
 
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog() : Animal("Dog"), _brain(new Brain)
 {
 	std::cout << "\033[48;2;139;69;19m" << " [DOG]: New dog object created!" << "\033[0m" << std::endl;
 }
 
-Dog::Dog(const Animal& src) : Animal(src)
+Dog::Dog(const Animal& src) : Animal(src), _brain(new Brain)
 {
 	std::cout << "\033[48;2;139;69;19m" << " [DOG]: Copying another dog object... Who let the dogs out?!" << "\033[0m" << std::endl;
 	// *this = src;
@@ -15,6 +15,7 @@ Dog::Dog(const Animal& src) : Animal(src)
 
 Dog::~Dog()
 {
+	delete _brain;
 	std::cout << "\033[48;2;139;69;19m" << " [DOG]: Goodbye, world! This dog object is leaving the program now." << "\033[0m" << std::endl;
 }
 
@@ -22,6 +23,8 @@ Dog& Dog::operator=(const Dog& rhs)
 {
 	std::cout << "\033[48;2;139;69;19m" << " [DOG]: Copying one dog object to another..." << "\033[0m" << std::endl;
 	Animal::operator=(rhs);
+	delete _brain;
+	_brain = new Brain(*(rhs._brain));
 	return *this;
 }
 

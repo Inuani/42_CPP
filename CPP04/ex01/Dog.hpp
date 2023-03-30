@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 #ifndef Dog_HPP
 # define Dog_HPP
@@ -15,7 +16,7 @@ public:
 
 private:
 
-
+	Brain	*_brain;
 
 };
 
