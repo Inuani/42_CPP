@@ -5,7 +5,7 @@
 #ifndef Dog_HPP
 # define Dog_HPP
 
-class Dog : public Animal {
+class Dog : public AAnimal {
 public:
 	Dog();
 	Dog(const Dog& src);
@@ -13,7 +13,7 @@ public:
 
 	Dog&	operator=(const Dog& rhs);
 	void			makeSound() const;
-	const std::string*	getIdeas() const;
+	std::string*	getIdeas();
 
 private:
 

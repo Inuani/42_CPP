@@ -23,7 +23,7 @@ Brain&	Brain::operator=(const Brain& rhs)
 	return *this;
 }
 
-const std::string* Brain::getIdeas( void ) const
+std::string* Brain::getIdeas( void )
 {
 	return _ideas;
 }

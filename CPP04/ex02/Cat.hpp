@@ -5,7 +5,7 @@
 #ifndef Cat_HPP
 # define Cat_HPP
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 	
 public:
 	Cat();
@@ -14,7 +14,7 @@ public:
 
 	Cat&	operator=(const Cat& rhs);
 	void			makeSound() const;
-	const std::string* getIdeas() const;
+	std::string*	getIdeas();
 
 private:
 

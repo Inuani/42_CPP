@@ -16,6 +16,7 @@ public:
 	virtual void			makeSound() const;
 	void			setType(const std::string& type);
 	const std::string&	getType() const;
+	virtual const std::string* getIdeas() const = 0;
 
 private:
 
