@@ -10,9 +10,12 @@ public:
 
 	Cure();
 	Cure(const Cure& src);
-	~Cure();
+	virtual ~Cure();
 
-	Cure& operator=(const Cure& rhs);
+	Cure&	operator=(const Cure& rhs);
+
+	virtual void	use(ICharacter& target);
+	Cure*	clone() const;
 
 private:
 

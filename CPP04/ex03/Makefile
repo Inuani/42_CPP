@@ -14,14 +14,16 @@ SRCS =	main.cpp \
 		AMateria.cpp \
 		Cure.cpp \
 		Ice.cpp \
-		ICharacter.cpp \
-		Character.cpp
+		Character.cpp \
+		MateriaSource.cpp
 
 HDRS =	AMateria.hpp \
 		Ice.hpp \
 		Cure.hpp \
 		ICharacter.hpp \
-		Character.hpp
+		Character.hpp \
+		MateriaSource.hpp \
+		IMateriaSource.hpp
 
 OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 

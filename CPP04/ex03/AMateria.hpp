@@ -1,4 +1,5 @@
 #include <iostream>
+#include "ICharacter.hpp"
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP

@@ -11,7 +11,8 @@ AMateria::AMateria(const std::string &type) : _type(type)
 
 AMateria::AMateria(const AMateria &src)
 {
-	*this = src;
+	_type = src._type;
+	// *this = src;
 }
 
 AMateria::~AMateria()
@@ -31,5 +32,5 @@ const std::string &AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-	// derived class will overwrite this
+	(void)target;
 }

@@ -17,7 +17,7 @@ Ice::~Ice()
 
 // clone instead of calling construc.
 // but still call the copy construc and return pointer
-Ice* clone() const
+Ice* Ice::clone() const
 {
 	return new Ice(*this);
 }
@@ -29,7 +29,7 @@ Ice&	Ice::operator=(const Ice& rhs)
 	return *this;
 }
 
-void	use(ICharacter& target)
+void	Ice::use(ICharacter& target)
 {
-	
+	std::cout << "* shoots and ice bolt at " << target.getName() << " *" << std::endl;
 }
