@@ -1,6 +1,7 @@
 
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <sstream>
 #include <ctime>
 #include <cstdlib>
 #include <iomanip>
@@ -151,19 +152,6 @@ void	PhoneBook::searchCmd(PhoneBook& phbk) const
 	}
 	printContactInArray(phbk);
 	std::string	input;
-	std::cout << "Enter the index of a contact to display : ";
-	while (getline(std::cin, input))
-	{
-		if (input.empty())
-			std::cout << "Enter the index of a contact to display : ";
-		else
-			break ;
-	}
-	if (input.empty())
-	{
-		std::cout << std::endl;
-		exit(0);
-	}
 	std::cout << "Enter index between 0 and " << (nbContact - 1) << ": ";
 	while (getline(std::cin, input))
 	{
@@ -174,7 +162,16 @@ void	PhoneBook::searchCmd(PhoneBook& phbk) const
 		}
 		else if (!checkOnlyDigit(input))
 		{
-			int index = std::stoi(input);
+			// used to convert input string to int
+			std::istringstream iss(input);
+			int index;
+			iss >> index;
+			if (iss.fail() || index < std::numeric_limits<int>::min() || index > std::numeric_limits<int>::max())
+			{
+				std::cout << "Enter index between 0 and " << (nbContact - 1) << ": ";
+				continue;
+			}
+			// int index = std::stoi(input);
 			if (index >= 0 && index < nbContact)
 				break;
 		}

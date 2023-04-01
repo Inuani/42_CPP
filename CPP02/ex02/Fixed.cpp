@@ -142,24 +142,23 @@ Fixed	Fixed::operator--(int) //post-dec
 
 const Fixed&	Fixed::min(const Fixed& rhs, const Fixed& lhs)
 {
-	return (rhs._value < lhs._value) ? rhs : lhs;
+	return (rhs < lhs) ? rhs : lhs;
 }
 
 Fixed&	Fixed::min(Fixed& rhs, Fixed& lhs)
 {
-	return (rhs._value < lhs._value) ? rhs : lhs;
+	return (rhs < lhs) ? rhs : lhs;
 }
 
 const Fixed&	Fixed::max(const Fixed& rhs, const Fixed& lhs)
 {
-	return (rhs._value > lhs._value) ? rhs : lhs;
+	return (rhs > lhs) ? rhs : lhs;
 }
 
 Fixed&	Fixed::max(Fixed& rhs, Fixed& lhs)
 {
-	return (rhs._value > lhs._value) ? rhs : lhs;
+	return (rhs > lhs) ? rhs : lhs;
 }
-
 
 std::ostream&	operator<<(std::ostream& os, const Fixed& fixed)
 {
