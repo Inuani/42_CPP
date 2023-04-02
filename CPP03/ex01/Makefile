@@ -1,4 +1,4 @@
-NAME	= ScavTrap
+NAME	= scavtrap
 
 CXX		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic

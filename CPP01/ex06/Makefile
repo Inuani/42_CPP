@@ -1,4 +1,4 @@
-NAME	= Gloukyfilter
+NAME	= gloukyfilter
 
 CXX		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
