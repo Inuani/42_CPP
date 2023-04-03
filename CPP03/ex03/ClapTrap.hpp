@@ -27,7 +27,7 @@ public :
 	void			setHitPoints(unsigned int amount);
 	void			setAttackDamage(unsigned int amount);
 
-private :
+protected :
 
 	std::string		_name;
 	unsigned int	_hitPoints;

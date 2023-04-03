@@ -8,7 +8,7 @@ int	main()
 
 	std::cout << "Addresses :" << std::endl;
 	std::cout << &brain << std::endl;
-	std::cout << &stringPTR << std::endl;
+	std::cout << stringPTR << std::endl;
 	std::cout << &stringREF << std::endl;
 	
 	std::cout << "Values :" << std::endl;

@@ -18,7 +18,7 @@ public:
 	const std::string&	getType() const;
 	virtual std::string* getIdeas() = 0;
 
-private:
+protected:
 
 	std::string	_type;
 
