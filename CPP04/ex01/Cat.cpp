@@ -36,7 +36,7 @@ void Cat::makeSound() const
 	std::cout << "\033[48;2;255;192;203m" << "Purrfect! The Cat is making its signature sound... Now, if only we could patent it." << "\033[0m" << std::endl;
 }
 
-const std::string* Cat::getIdeas() const
+std::string* Cat::getIdeas()
 {
 	return _brain->getIdeas();
 }

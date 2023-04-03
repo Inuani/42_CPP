@@ -13,7 +13,7 @@ public:
 
 	Dog&	operator=(const Dog& rhs);
 	void			makeSound() const;
-	const std::string*	getIdeas() const;
+	std::string*	getIdeas();
 
 private:
 

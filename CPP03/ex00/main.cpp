@@ -3,30 +3,36 @@
 
 int main( void )
 {
-    ClapTrap    clapix("Clapix", 10, 10, 2);
-    ClapTrap    clapox("Clapox", 10, 10, 4);
+	ClapTrap	clapix("Clapix", 10, 10, 2);
+	ClapTrap	clapox("Clapox", 10, 10, 4);
 
-    clapix.attack("Clapux");
+	std::cout << std::endl;
+	clapix.attack("Clapux");
+	clapox.takeDamage(13);
+	clapix.beRepaired(5);
 
-    clapox.takeDamage(13);
+	std::cout << std::endl;
+	ClapTrap	clapux = clapox;
+	ClapTrap	clapax(clapux);
+	ClapTrap	Clapipox("Clapipox", 0, 10, 2);
+	// Clapux & Clapipox => Clapox
 
-    clapix.beRepaired(5);
+	std::cout << std::endl;
+	Clapipox.takeDamage(1);
+	Clapipox.attack(clapux.getName());
 
-    ClapTrap    clapux = clapox;
+	std::cout << std::endl;
+	clapix.attack(clapox.getName());
 
-    ClapTrap    clapax(clapux);
+	std::cout << std::endl;
+	clapix.beRepaired(5);
+	clapox.beRepaired(3);
 
-    ClapTrap    Clapipox("Clapipox", 0, 10, 2);
-    Clapipox.takeDamage(1);
+	std::cout << std::endl;
+	// Copie de Clapox
+	clapux.takeDamage(7);
+	clapax.takeDamage(5);
 
-    clapix.attack(clapox.getName());
-    clapix.attack(clapux.getName());
-
-    clapix.beRepaired(5);
-    clapox.beRepaired(3);
-
-    clapux.takeDamage(7);
-    clapax.takeDamage(5);
-
-    return 0;
+	std::cout << std::endl;
+	return 0;
 }

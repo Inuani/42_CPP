@@ -4,25 +4,32 @@
 
 int main( void )
 {
-    DiamondTrap dia("Dia");
-    dia.whoAmI();
-    dia.attack("Crapux");
+	DiamondTrap dia("Dia");
 
-    std::cout << std::endl;
-    DiamondTrap dia2(dia);
+	std::cout << std::endl;
+	dia.whoAmI();
 
-    std::cout << std::endl;
-    DiamondTrap dia3;
-    dia3 = dia;
+	std::cout << std::endl;
+	dia.attack("Crapux");
 
-    std::cout << std::endl;
-    dia.highFivesGuys();
-    dia.guardGate();
+	std::cout << std::endl;
+	DiamondTrap dia2(dia);
 
-    std::cout << std::endl;
-    {
-        //testing destructor
-        DiamondTrap dia4("Dios");
-    }
-    return 0;
+	std::cout << std::endl;
+	DiamondTrap dia3;
+
+	std::cout << std::endl;
+	dia3 = dia;
+
+	std::cout << std::endl;
+	dia.highFivesGuys();
+	dia.guardGate();
+
+	std::cout << std::endl;
+	{
+		//testing destructor
+		DiamondTrap dia4("Dios");
+	}
+	std::cout << std::endl;
+	return 0;
 }

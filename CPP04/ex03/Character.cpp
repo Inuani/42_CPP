@@ -109,6 +109,7 @@ void	Character::unequip(int i)
 // 			newNode->materia = _inventory[i];
 // 			newNode->next = _droppedMaterias;
 // 			_droppedMaterias = newNode;
+// 			newNode->next = nullptr;
 // 		}
 // 	}
 // }

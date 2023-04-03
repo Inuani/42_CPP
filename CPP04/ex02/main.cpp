@@ -7,9 +7,9 @@ int main()
 	const size_t	nbOfAnimals = 10;
 	const size_t	half = nbOfAnimals / 2;
 
-	// const AAnimal* meta = new AAnimal();
+	const AAnimal* meta = new AAnimal();
 
-	AAnimal**	animalsArray = new AAnimal*[nbOfAnimals];
+	// AAnimal**	animalsArray = new AAnimal*[nbOfAnimals];
 
 	for(size_t i = 0; i < nbOfAnimals; ++i)
 	{

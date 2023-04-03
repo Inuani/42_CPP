@@ -12,6 +12,7 @@ Fixed::Fixed(const Fixed &src)
 	_value = src._value;
 }
 
+// when leftshift value by 8 bits it is equivalent to
 // multiply the int by 2^8 (256)
 Fixed::Fixed(const int nb)
 {
@@ -19,6 +20,8 @@ Fixed::Fixed(const int nb)
 	_value = nb << _fractionalBits;
 }
 
+// (1 << _fractionalBits) = 256 in our case
+// rounded to the nearest int but still a float -> static_cast<int>
 Fixed::Fixed(const float nb)
 {
 	std::cout << "Float constructor called" << std::endl;
@@ -49,7 +52,7 @@ void Fixed::setRawBits(int const raw)
 }
 
 // (1 << _fractionalBits) -> 2^8 = 256
-// undoing the scaling that was applied when storing fix point number.
+// undoing scaling that was done when storing fix point number.
 float	Fixed::toFloat( void ) const
 {
 	return static_cast<float>(_value) / (1 << _fractionalBits);

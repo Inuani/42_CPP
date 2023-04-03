@@ -8,8 +8,8 @@ class Fixed {
 public:
 
 Fixed();
-Fixed(const int nb);
-Fixed(const float);
+Fixed(const int nb); // construc for int
+Fixed(const float); // construc for float
 Fixed(const Fixed& src);
 ~Fixed();
 

@@ -5,13 +5,20 @@
 
 int main( void )
 {
-    FragTrap    fragy("Fragy");
+	FragTrap	fragy("Fragy");
 
-    fragy.highFivesGuys();
-    fragy.attack("Clapix");
-    fragy.takeDamage(8);
-    fragy.beRepaired(4);
-    FragTrap    fragol("Fragol");
-    fragol = fragy;
-    return 0;
+	std::cout << std::endl;
+	fragy.highFivesGuys();
+	
+	std::cout << std::endl;
+	fragy.attack("Clapix");
+	fragy.takeDamage(8);
+	fragy.beRepaired(4);
+
+	std::cout << std::endl;
+	FragTrap	fragol("Fragol");
+	std::cout << std::endl;
+	fragol = fragy;
+	std::cout << std::endl;
+	return 0;
 }

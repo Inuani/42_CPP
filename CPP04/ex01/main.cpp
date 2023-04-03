@@ -28,6 +28,21 @@ int main()
 			std::cout << "Idea " << j << ": " << ideas[j] << std::endl;
 	}
 
+	// std::cout << std::endl;
+	// std::cout << "Testing deep copy:" << std::endl;
+
+	// Cat	minou;
+	// Cat minet(minou);
+
+	// std::string* changedIdea = minou.getIdeas();
+	// changedIdea[0] = "minou changed id_0";
+
+	// std::string* copiedOgIdea = minet.getIdeas();
+		
+	// std::cout << "Original copied idea : " << copiedOgIdea[0] << std::endl;
+	// std::cout << "Changed initial idea : " << changedIdea[0] << std::endl;
+
+
 	std::cout << std::endl;
 	for(size_t i = 0; i < nbOfAnimals; ++i)
 		delete animalsArray[i];

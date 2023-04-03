@@ -3,7 +3,7 @@
 
 ScavTrap::ScavTrap() : ClapTrap("", 100, 50, 20)
 {
-	std::cout << "\033[33m" << "ScavTrap default constructor called !" << "\033[0m" << std::endl;
+	std::cout << "\033[33m" << "ScavTrap constructeur par defaut !" << "\033[0m" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string name) : ClapTrap(name, 100, 50, 20)

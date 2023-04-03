@@ -31,6 +31,7 @@ private:
 	// struct MateriaNode {
 	// 	AMateria* materia;
 	// 	MateriaNode* next;
+	// 	// MateriaNode() : materia(nullptr), next(nullptr) {}
 	// };
 
 	// MateriaNode* _droppedMaterias;

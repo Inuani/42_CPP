@@ -14,7 +14,7 @@ public:
 
 	Cat&	operator=(const Cat& rhs);
 	void			makeSound() const;
-	const std::string* getIdeas() const;
+	std::string* getIdeas();
 
 private:
 

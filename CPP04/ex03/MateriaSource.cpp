@@ -7,9 +7,12 @@ MateriaSource::MateriaSource() : _count(0)
 		_materias[i] = nullptr;
 }
 
-MateriaSource::MateriaSource(const MateriaSource &src)
+MateriaSource::MateriaSource(const MateriaSource &src) : _count(src._count)
 {
-	*this = src;
+	for (int i = 0; i < 4; ++i)
+		_materias[i] = nullptr;
+	for (int i = 0; i < src._count; ++i)
+		_materias[i] = src._materias[i]->clone();
 }
 
 MateriaSource::~MateriaSource()
@@ -29,6 +32,7 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& rhs)
 	_count = 0;
 	for (int i = 0; i < rhs._count; ++i)
 		_materias[i] = rhs._materias[i]->clone();
+	_count = rhs._count;
 	return *this;
 }
 

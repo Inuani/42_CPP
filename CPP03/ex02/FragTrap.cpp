@@ -3,7 +3,7 @@
 
 FragTrap::FragTrap() : ClapTrap("", 100, 100, 30)
 {
-	std::cout << "\033[37m" << "FragTrap default constructor called !" << "\033[0m" << std::endl;
+	std::cout << "\033[37m" << "FragTrap constructeur par defaut !" << "\033[0m" << std::endl;
 }
 
 FragTrap::FragTrap(const std::string name) : ClapTrap(name, 100, 100, 30)

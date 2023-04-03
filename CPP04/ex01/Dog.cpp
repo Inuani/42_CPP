@@ -37,7 +37,7 @@ void Dog::makeSound() const
 	std::cout << "\033[48;2;210;105;30m" << "Woof woof! That's the sound of a happy Dog, wagging its tail." << "\033[0m" << std::endl;
 }
 
-const std::string* Dog::getIdeas() const
+std::string* Dog::getIdeas()
 {
 	return _brain->getIdeas();
 }
