@@ -12,10 +12,16 @@ OBJ_DIR = ./obj
 
 SRCS =	main.cpp \
 		Bureaucrat.cpp \
-		Form.cpp
+		AForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
 
 HDRS =	Bureaucrat.hpp \
-		Form.hpp
+		AForm.hpp \
+		RobotomyRequestForm.hpp \
+		ShrubberyCreationForm.hpp \
+		PresidentialPardonForm.hpp
 
 OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 
