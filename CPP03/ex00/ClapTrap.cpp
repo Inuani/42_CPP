@@ -36,7 +36,7 @@ void ClapTrap::attack(const std::string &target)
 {
 	if (_energyPoints > 0 && _hitPoints > 0)
 	{
-		_energyPoints += 1;
+		_energyPoints -= 1;
 		std::cout << "ClapTrap " << _name << " attaque " << target << " avec une répartie cinglante, infligeant " << _attackDamage << " points de dégâts et laissant des cicatrices émotionnelles !"<< std::endl;
 	}
 	else

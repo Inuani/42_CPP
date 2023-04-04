@@ -8,9 +8,9 @@ DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap(), _name()
 
 DiamondTrap::DiamondTrap(const std::string &name) : FragTrap(), ScavTrap(), _name(name)
 {
-	setHitPoints(100);
-	setEnergyPoints(50);
-	setAttackDamage(30);
+	setHitPoints(FragTrap::getHitPoints());
+	setEnergyPoints(ScavTrap::getEnergyPoints());
+	setAttackDamage(FragTrap::getAttackDamage());
 	setName(name + "_clap_name");
 	std::cout << "\033[42m" << "DiamondTrap " << _name << " est assemblé. Il a le pouvoir d'étonner et d'effrayer en même temps !" << "\033[0m" << std::endl;
 }
