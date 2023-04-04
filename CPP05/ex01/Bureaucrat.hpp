@@ -4,6 +4,8 @@
 #ifndef Bureaucrat_HPP
 # define Bureaucrat_HPP
 
+class Form;
+
 class Bureaucrat {
 
 public:
@@ -34,6 +36,8 @@ public:
 
 	void	incrementGrade();
 	void	decrementGrade();
+
+	void	signForm(Form& form);
 
 private:
 

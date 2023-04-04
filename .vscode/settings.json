@@ -55,6 +55,14 @@
 		"cmath": "cpp",
 		"deque": "cpp",
 		"fstream": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"__hash_table": "cpp",
+		"__node_handle": "cpp",
+		"array": "cpp",
+		"complex": "cpp",
+		"optional": "cpp",
+		"sstream": "cpp",
+		"unordered_map": "cpp",
+		"vector": "cpp"
 	}
 }
