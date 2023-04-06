@@ -26,22 +26,9 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
 
 void	PresidentialPardonForm::execute(const Bureaucrat& b) const
 {
-	// bool keepGoing = true;
-	// try
-	// {
-		if (!getIsSigned())
-			throw FormNotSignedException();
-		if (b.getGrade() > _gradeMin2Exec)
-			throw GradeTooLowException();
-	// }
-	// catch (const GradeTooLowException& e) {
-	// 	std::cerr << "Error: " << e.what() << std::endl;
-	// 	keepGoing = false;
-	// } catch (const FormNotSignedException& e) {
-	// 	std::cerr << "Error: " << e.what() << std::endl;
-	// 	keepGoing = false;
-	// }
-	// if (!keepGoing)
-	// 	return ;
+	if (!getIsSigned())
+		throw FormNotSignedException();
+	if (b.getGrade() > _gradeMin2Exec)
+		throw GradeTooLowException();
 	std::cout << getTarget() << " is forgiven by Zaphod Beeblebrox." << std::endl;
 }
