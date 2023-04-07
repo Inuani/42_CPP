@@ -1,28 +1,35 @@
 #include <iostream>
 #include "Serializer.hpp"
 
-int main() {
-	// Step 1: Create a Data object and initialize its data members
-	Data originalData;
-	originalData.someData = 42;
+int main()
+{
+	Data d;
+	d.someData = 42;
 
-	// Step 2: Serialize the Data object using the Serializer::serialize() method
-	uintptr_t serializedData = Serializer::serialize(&originalData);
+	// Serialize the Data object
+	uintptr_t serializedD = Serializer::serialize(&d);
 
-	// Step 3: Deserialize the uintptr_t value obtained in the previous step
-	Data* deserializedData = Serializer::deserialize(serializedData);
+	// Deserialize the uintptr_t value we got jsut above
+	Data* deserializedD = Serializer::deserialize(serializedD);
 
-	// Step 4: Compare the original Data object pointer with the deserialized pointer
-	if (&originalData == deserializedData) {
+	// Compare original Data object pointer with the deserialized pointer
+	if (&d == deserializedD) {
 		std::cout << "The original and deserialized pointers are equal." << std::endl;
 	} else {
 		std::cout << "The original and deserialized pointers are not equal." << std::endl;
 	}
 
-	// Step 5 (Optional): Compare the data members of the original and deserialized Data objects
-	if (originalData.someData == deserializedData->someData) {
+	// Compare data members of the original and deserialized Data objects
+	if (d.someData == deserializedD->someData) {
 		std::cout << "The original and deserialized data members are equal." << std::endl;
 	} else {
 		std::cout << "The original and deserialized data members are not equal." << std::endl;}
+
+	// Original address of d is the same as the deserializedD !
+	std::cout << std::endl;
+	std::cout << "Data			: " << &d << std::endl;
+	std::cout << "serialized		: " << serializedD << std::endl;
+	std::cout << "deserialized raw	: " << deserializedD << std::endl;
+
 	return 0;
 }

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <limits>
 
 ScalarConverter::ScalarConverter() {}
 
@@ -82,7 +83,7 @@ bool ScalarConverter::isDouble(const std::string& input)
 		else
 			digitCount++;
 	}
-	if (!dotFound && digitCount > 10)
+	if (!dotFound && digitCount > 9)
 		return true;
 	return dotFound;
 }
@@ -148,7 +149,7 @@ void	ScalarConverter::caseInt(const std::string& input)
 	int intRes = str2Int(input);
 	char c = static_cast<char>(intRes);
 	std::cout << "char: ";
-	if (std::isprint(c))
+	if ((intRes <= std::numeric_limits<char>::max() && intRes >= std::numeric_limits<char>::min()) && std::isprint(c))
 		std::cout << '\'' << c << '\'' << std::endl;
 	else
 		std::cout << "Non-displayable" << std::endl;
@@ -169,30 +170,20 @@ void	ScalarConverter::caseFloat(const std::string& input)
 		floatRes = str2Float(input);
 		char c = static_cast<char>(floatRes);
 		std::cout << "char: ";
-		if (std::isprint(c))
+		if ((floatRes <= std::numeric_limits<char>::max() && floatRes >= std::numeric_limits<char>::min()) && std::isprint(c))
 			std::cout << '\'' << c << '\'' << std::endl;
 		else
 			std::cout << "Non-displayable" << std::endl;
 		int	i = static_cast<int>(floatRes);
-		std::cout << "int: " << i << std::endl;
+		if (floatRes <= std::numeric_limits<int>::max() && floatRes >= std::numeric_limits<int>::min())
+			std::cout << "int: " << i << std::endl;
+		else
+			std::cout << "int: Non-displayable" << std::endl;
 	}
 	std::cout << "float: " << std::setprecision(1) << std::fixed << floatRes << "f" << std::endl;
 	double d = static_cast<double>(floatRes);
 	std::cout << "double: " << std::setprecision(1) << std::fixed << d << std::endl;
 }
-
-// float ScalarConverter::handleSpecialFloat(const std::string& input) {
-// 	float inf = HUGE_VALF;
-
-// 	if (input == "-inff") {
-// 		return -inf;
-// 	} else if (input == "+inff") {
-// 		return inf;
-// 	} else if (input == "nanf") {
-// 		return inf / inf;
-// 	}
-// 	return 0.0f;
-// }
 
 double ScalarConverter::handleSpecial(const std::string& input) {
 	double inf = HUGE_VAL;
@@ -209,6 +200,15 @@ double ScalarConverter::handleSpecial(const std::string& input) {
 	return 0.0;
 }
 
+bool isWithinFloatRange(double value) {
+	float minValue = -std::numeric_limits<float>::max();
+	float maxValue = std::numeric_limits<float>::max();
+
+	if (value >= static_cast<double>(minValue) && value <= static_cast<double>(maxValue))
+		return true;
+	return false;
+}
+
 void	ScalarConverter::caseDouble(const std::string& input)
 {
 	double doubleRes;
@@ -219,15 +219,21 @@ void	ScalarConverter::caseDouble(const std::string& input)
 		doubleRes = str2Double(input);
 		char c = static_cast<char>(doubleRes);
 		std::cout << "char: ";
-		if (std::isprint(c))
+		if ((doubleRes <= std::numeric_limits<char>::max() && doubleRes >= std::numeric_limits<char>::min()) && std::isprint(c))
 			std::cout << '\'' << c << '\'' << std::endl;
 		else
 			std::cout << "Non-displayable" << std::endl;
 		int	i = static_cast<int>(doubleRes);
-		std::cout << "int: " << i << std::endl;
+		if (doubleRes <= std::numeric_limits<int>::max() && doubleRes >= std::numeric_limits<int>::min())
+			std::cout << "int: " << i << std::endl;
+		else
+			std::cout << "int: Non-displayable" << std::endl;
 	}
 	float f = static_cast<float>(doubleRes);
-	std::cout << "float: " << std::setprecision(1) << std::fixed << f << "f" << std::endl;
+	if (isWithinFloatRange(doubleRes) || input == "-inf" || input == "+inf" || input == "nan")
+		std::cout << "float: " << std::setprecision(1) << std::fixed << f << "f" << std::endl;
+	else
+		std::cout << "float: Non-displayable" << std::endl;
 	std::cout << "double: " << std::setprecision(1) << std::fixed << doubleRes << std::endl;
 }
 
@@ -244,7 +250,7 @@ void	ScalarConverter::convert(const std::string& input)
 	}
 	if (type.empty())
 	{
-		std::cout << "Not a valid input: usage: ./convert <value> where <value> is a literal of type char, int, double, or float." << std::endl;
+		std::cout << "Usage: ./convert <value> where <value> is a literal of type char, int, double, or float." << std::endl;
 		return ;
 	}
 	switch (type[0])
