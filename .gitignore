@@ -23,3 +23,6 @@ bureaucrat
 serializer
 convert
 base
+iter
+templatefunc
+array
