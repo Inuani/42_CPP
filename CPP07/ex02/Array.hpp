@@ -74,7 +74,29 @@ unsigned int	Array<T>::size() const {
 	return _aSize;
 }
 
+class Box {
+
+public:
+
+	Box() : _width(0), _height(0) {}
+	Box(unsigned int wdt, unsigned int hgt) : _width(wdt), _height(hgt) {}
+	Box(const Box& src) : _width(src._width), _height(src._height) {}
+	~Box() {}
+
+
+	unsigned int	getWidth() const { return _width; }
+	unsigned int	getHeight() const { return _height; }
+	void			setWidth(unsigned int w) { _width = w; }
+	void			setHeight(unsigned int h) { _height = h; }
+
+private:
+
+	unsigned int	_width;
+	unsigned int	_height;
+
+};
+
 // // When working with templates, the implementation must be included in the header
 // // to ensure that the compiler can instantiate the templates for different types.
-// #include "Array.tpp"
+// #include "Array.tpp" -> .tpp not working with 42 mac compiler
 #endif

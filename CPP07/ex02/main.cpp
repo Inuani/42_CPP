@@ -64,5 +64,29 @@ int main( void )
 	}
 	for(unsigned i = 0; i < pointA.size(); ++i)
 		std::cout << "pointA["<< i << "] = (" << pointA[i].x << ',' << pointA[i].y << ')' << std::endl;
+
+	std::cout << std::endl;
+	//Box class
+	Array<Box> boxA(3);
+
+	for(size_t i = 0; i < boxA.size(); ++i)
+	{
+		boxA[i].setHeight(i * 2 + 1);
+		boxA[i].setWidth(i + 2);
+		std::cout << "height boxA[" << i << "] = " << boxA[i].getHeight() << std::endl;
+		std::cout << "width boxA[" << i << "] = " << boxA[i].getWidth() << std::endl;
+	}
+
+	Array<Box> copiedBoxA(boxA);
+	Array<Box> assignedBoxA;
+	assignedBoxA = boxA;
+
+try {
+		std::cout << "Accessed box at index 1: width = " << boxA[1].getWidth() << ", height = " << boxA[1].getHeight() << std::endl;
+		std::cout << "Accessed box at index 1: width = " << boxA[4].getWidth() << ", height = " << boxA[4].getHeight() << std::endl;
+	} catch (const std::exception& e) {
+		std::cout << "Exception caught: " << e.what() << std::endl;
+	}
+
 	return 0;
 }
