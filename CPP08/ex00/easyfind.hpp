@@ -43,13 +43,11 @@ void	testEasyfind(T& container, const std::string& contName)
 	}
 }
 
-
 // prototype of the function template std::find :
 // template< class InputIt, class T > // InputIt is an iterator
 // InputIt find( InputIt first, InputIt last, const T& value );
 
 // iterator is an object that points to an element in a container (a vector or an array).
 // It allows to traverse the container and access its elements.
-
 
 #endif
