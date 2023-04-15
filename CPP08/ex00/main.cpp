@@ -3,9 +3,6 @@
 #include <vector>
 #include <list>
 
-
-
-
 int main( void )
 {
 	std::vector<int> vec;
