@@ -29,7 +29,7 @@ private:
 
 // FUNCTIONS PROVIDED
 // empty() - returns whether the stack is empty
-// size() - returns the size odf the stack
+// size() - returns the size of the stack
 // top () - returns a reference to the top most element of the stack
 // push(g) - adds the element 'g' at the top of the stack
 // pop() - deletes the top most element of the stack
