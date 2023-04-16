@@ -65,6 +65,8 @@
 		"unordered_map": "cpp",
 		"vector": "cpp",
 		"*.tpp": "cpp",
-		"list": "cpp"
+		"list": "cpp",
+		"__tree": "cpp",
+		"map": "cpp"
 	}
 }
