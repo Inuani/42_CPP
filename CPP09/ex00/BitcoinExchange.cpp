@@ -43,7 +43,6 @@ float	BitcoinExchange::getBtcRate(const std::string& date) {
 	if (_exRates.find(date) != _exRates.end())
 		return _exRates[date];
 	else {
-		
 		std::map<std::string, float>::iterator it = _exRates.lower_bound(date); // return it to the 1st element (date) greater than date passed as param
 		// lower_bound: When comparing strings, the standard lexicographical comparison is used.
 		// In "yyyy-mm-dd" format, lexicographical ordering coincides with chronological order of dates.
