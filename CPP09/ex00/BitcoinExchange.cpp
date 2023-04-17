@@ -94,7 +94,6 @@ void	BitcoinExchange::handleInputFile(const std::string& filename) {
 	if (!ifs.is_open())
 		throw std::runtime_error("Input file can not be opened.");
 	parseInputFile(ifs);
-
 	ifs.close();
 }
 

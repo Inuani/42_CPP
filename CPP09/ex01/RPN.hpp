@@ -1,6 +1,6 @@
 #include <iostream>
 
-// very good video to understand RPN : https://www.youtube.com/watch?v=7ha78yWRDlE
+// very good video to understand RPN - source for algo : https://www.youtube.com/watch?v=7ha78yWRDlE
 
 #ifndef RPN_HPP
 # define RPN_HPP

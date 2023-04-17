@@ -13,7 +13,7 @@ int main(int ac, char **av)
 		std::cerr << "Error: " << e.what() << std::endl;
 		return 1;
 	}
-	pm.printVec();
-	pm.printList();
 	return 0;
 }
+
+

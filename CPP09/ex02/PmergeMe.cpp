@@ -3,6 +3,8 @@
 #include <vector>
 #include <list>
 #include <sstream>
+#include <ctime>
+#include <iomanip>
 
 PmergeMe::PmergeMe() {}
 
@@ -19,16 +21,18 @@ PmergeMe&	PmergeMe::operator=(const PmergeMe& rhs) {
 }
 
 void	PmergeMe::printVec() {
-	std::cout << "VEC :" << std::endl;
+	// std::cout << "VEC :" << std::endl;
 	for(unsigned int i = 0; i < _vec.size(); ++i)
-		std::cout << _vec[i] << std::endl;
+		std::cout << _vec[i] << " "; //<< std::endl;
+	std::cout << std::endl;
 }
 
 void	PmergeMe::printList() {
 	std::list<int>::iterator	it;
-	std::cout << "LIST :" << std::endl;
+	// std::cout << "LIST :" << std::endl;
 	for(it = _lst.begin(); it != _lst.end(); ++it)
-		std::cout << *it << std::endl;
+		std::cout << *it << " "; //<< std::endl;
+	std::cout << std::endl;
 }
 
 void	PmergeMe::parseInput(int& ac, char** av) {
@@ -45,30 +49,138 @@ void	PmergeMe::parseInput(int& ac, char** av) {
 	}
 }
 
-void	PmergeMe::vecRecursionMergeSort(std::vector<int>& vec) {
-	if (vec.size() <= 1)
-		return ;
-	int	middle = vec.size() / 2; //rounded down to nearest int if odd nb in the vec
-
-	// using std vector constructor that takes 2 iterators. the 1st iterator is included and the last is not included !!
-	std::vector<int> left(vec.begin(), vec.begin() + middle); // up but not including the middle element
-	std::vector<int> right(vec.begin() + middle, vec.end()); // middle element included
-
-	vecRecursionMergeSort(left);
-	vecRecursionMergeSort(right);
-}
-
-void	PmergeMe::listRecursionMergeSort(std::list<int>& lst) {
-	if (_lst.size() <= 1)
-		return ;
-	
-	int	middle = lst.size() / 2;
-	std::list<int> left(lst.begin(), );
-	std::list<int> right();
-}
-
 void	PmergeMe::mergeSort() {
-	vecRecursionMergeSort(_vec);
-	listRecursionMergeSort(_lst);
+	std::cout << "Before:	";
+	printVec();
+	clock_t start = clock();
+	recursionMergeSort<std::vector<int> >(_vec.begin(), _vec.end());
+	clock_t end = clock();
+	double vecTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	start = clock();
+	recursionMergeSort<std::list<int> >(_lst.begin(), _lst.end());
+	end = clock();
+	double listTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	std::cout << "After:	";
+	printList();
+
+	std::cout << std::fixed << std::setprecision(5) << "Time to process a range of " << nbOfElem<std::vector<int> >(_vec.begin(), _vec.end()) << " elements with std::vec	: " << vecTime *1000000 << " us" << std::endl;
+	std::cout << std::fixed << std::setprecision(5)<< "Time to process a range of " << nbOfElem<std::list<int> >(_lst.begin(), _lst.end()) << " elements with std::list	: " << listTime << " us"<< std::endl;
+
+
+	// vecRecursionMergeSort(_vec.begin(), _vec.end());
+	// listRecursionMergeSort(_lst.begin(), _lst.end());
 }
+
+
+
+
+
+
+
+
+// void	vecMerge(std::vector<int>::iterator first, std::vector<int>::iterator middle, std::vector<int>::iterator last) {
+	
+// 	std::vector<int> tmp(first, last);
+
+// 	std::vector<int>::iterator left = tmp.begin();
+// 	std::vector<int>::iterator leftEnd = tmp.begin();
+// 	std::vector<int>::iterator right = tmp.begin();
+// 	std::vector<int>::iterator rightEnd = tmp.end();
+
+// 	// move leftEnd and right iterator to the middle point
+// 	int	i = 0;
+// 	for (std::vector<int>::iterator it = first; it != middle; ++it)
+// 		++i;
+// 	for (int j = 0; j < i; ++j) {
+// 		++leftEnd;
+// 		++right;
+// 	}
+
+// 	// iterate through the original vector
+// 	for (std::vector<int>::iterator it = first; it != last; ++it) {
+// 		if (left == leftEnd) {
+// 			*it = *right;
+// 			++right;
+// 		} else if (right == rightEnd) {
+// 			*it = *left;
+// 			++left;
+// 		} else if (*left < *right) {
+// 			*it = *left;
+// 			++left;
+// 		} else {
+// 			*it = *right;
+// 			++right;
+// 		}
+// 	}
+// }
+
+// void PmergeMe::vecRecursionMergeSort(std::vector<int>::iterator first, std::vector<int>::iterator last) {
+// 	int i = 0;
+// 	for (std::vector<int>::iterator it = first; it != last; ++it)
+// 		++i;
+// 	if (i <= 1)
+// 		return;
+// 	int middle = i / 2;
+// 	std::vector<int>::iterator mid = first;
+// 	for (int i = 0; i < middle; ++i)
+// 		++mid;
+
+// 	vecRecursionMergeSort(first, mid);
+// 	vecRecursionMergeSort(mid, last);
+
+// 	vecMerge(first, mid, last);
+// }
+
+// void	listMerge(std::list<int>::iterator first, std::list<int>::iterator middle, std::list<int>::iterator last) {
+	
+// 	std::list<int> tmp(first, last);
+
+// 	std::list<int>::iterator left = tmp.begin();
+// 	std::list<int>::iterator leftEnd = tmp.begin();
+// 	std::list<int>::iterator right = tmp.begin();
+// 	std::list<int>::iterator rightEnd = tmp.end();
+
+// 	// move leftEnd and right iterator to the middle point
+// 	int	i = 0;
+// 	for (std::list<int>::iterator it = first; it != middle; ++it)
+// 		++i;
+// 	for (int j = 0; j < i; ++j) {
+// 		++leftEnd;
+// 		++right;
+// 	}
+
+// 	for (std::list<int>::iterator it = first; it != last; ++it) {
+// 		if (left == leftEnd) {
+// 			*it = *right;
+// 			++right;
+// 		} else if (right == rightEnd) {
+// 			*it = *left;
+// 			++left;
+// 		} else if (*left < *right) {
+// 			*it = *left;
+// 			++left;
+// 		} else {
+// 			*it = *right;
+// 			++right;
+// 		}
+// 	}
+// }
+
+
+// void	PmergeMe::listRecursionMergeSort(std::list<int>::iterator first, std::list<int>::iterator last) {
+// 	int i = 0;
+// 	for (std::list<int>::iterator it = first; it != last; ++it)
+// 		++i;
+// 	if (i <= 1)
+// 		return ;
+// 	int	middle = i / 2;
+// 	std::list<int>::iterator mid = first;
+// 	for (int i = 0; i < middle; ++i)
+// 		++mid;
+	
+// 	listRecursionMergeSort(first, mid);
+// 	listRecursionMergeSort(mid, last);
+
+// 	listMerge(first, mid, last);
+// }
 

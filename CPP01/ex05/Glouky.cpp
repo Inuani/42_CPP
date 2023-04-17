@@ -17,9 +17,7 @@ Glouky::Glouky()
 	_levels[3].func = &Glouky::error;
 }
 
-Glouky::~Glouky()
-{
-}
+Glouky::~Glouky() {}
 
 void Glouky::complain(std::string level)
 {
