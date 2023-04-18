@@ -42,7 +42,8 @@ int	nbOfElem(typename T::iterator first, typename T::iterator last)
 
 template <typename T>
 void containerMerge(typename T::iterator first, typename T::iterator middle, typename T::iterator last) {
-	T tmp(first, last); // last excluded
+	
+	T tmp(first, last); // tmp copy of the vec/list last excluded
 
 	typename T::iterator left = tmp.begin();
 	typename T::iterator leftEnd = tmp.begin();
@@ -64,7 +65,7 @@ void containerMerge(typename T::iterator first, typename T::iterator middle, typ
 		} else if (right == rightEnd) { // same logic as above
 			*it = *left;
 			++left;
-		} else if (*left < *right) { // if both vec/list have some element we compare value and copy the smaller to thr original vector
+		} else if (*left < *right) { // if both vec/list have some element we compare value and copy the smaller to the original vec/list
 			*it = *left;
 			++left;
 		} else {
@@ -76,22 +77,21 @@ void containerMerge(typename T::iterator first, typename T::iterator middle, typ
 
 template <typename T>
 void recursionMergeSort(typename T::iterator first, typename T::iterator last) {
-	int i = 0; // get the nb of element from first to last
+	int nbElem = 0; // get the nb of element from first to last
 	for (typename T::iterator it = first; it != last; ++it)
-		++i;
-	if (i <= 1)
+		++nbElem;
+	if (nbElem <= 1)
 		return;
-	int middle = i / 2;
+	int middle = nbElem / 2;
 	typename T::iterator mid = first;
 	for (int i = 0; i < middle; ++i)
-		++mid; // advance the it to the middle of the container used, be it list or vector
+		++mid; // advance the it to the middle of the list/vec
 
 	recursionMergeSort<T>(first, mid); // first is included and mid is excluded (half open interval)
 	recursionMergeSort<T>(mid, last); // mid included, last excluded 
 
 	containerMerge<T>(first, mid, last);
 }
-
 
 // When you see a pair of iterators defining a range (ex: (first, last)), 
 // you can generally assume that the first iterator is included,
