@@ -20,9 +20,8 @@ int main(int ac, char **av)
 			std::cerr << "Error: " << e.what() << std::endl;
 			return 2;
 		}
-		
 	}
 	else
-		std::cerr << "Error: usage: ./btc <filename>.csv" <<std::endl;
+		std::cerr << "Error: usage: ./btc <file>.csv" <<std::endl;
 	return 0;
 }

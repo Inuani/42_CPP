@@ -63,8 +63,8 @@ void	PmergeMe::mergeSort() {
 	double listTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 	std::cout << "After:	";
 	printList();
-	std::cout << std::fixed << std::setprecision(5) << "Time to process a range of " << nbOfElem<std::vector<int> >(_vec.begin(), _vec.end()) << " elements with std::vec	: " << vecTime * 1000000 << " us" << std::endl;
-	std::cout << std::fixed << std::setprecision(5) << "Time to process a range of " << nbOfElem<std::list<int> >(_lst.begin(), _lst.end()) << " elements with std::list	: " << listTime * 1000000 << " us"<< std::endl;
+	std::cout << std::fixed << std::setprecision(5) << "Time to process a range of " << nbOfElem<std::vector<int> >(_vec.begin(), _vec.end()) << " elements with std::vec	: " << vecTime * 100 << " us" << std::endl;
+	std::cout << std::fixed << std::setprecision(5) << "Time to process a range of " << nbOfElem<std::list<int> >(_lst.begin(), _lst.end()) << " elements with std::list	: " << listTime * 100<< " us"<< std::endl;
 
 
 	// vecRecursionMergeSort(_vec.begin(), _vec.end());

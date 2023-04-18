@@ -46,9 +46,10 @@ int	RPN::doingRPN(const std::string& input) {
 		}
 		else {
 			std::istringstream	ssDigit(token);
-			int digit;
-			if (!(ssDigit >> digit) || digit > 10)
-				throw std::runtime_error("Invalid token" + token);
+			int		digit;
+			char	remain;
+			if (!(ssDigit >> digit) || digit > 10 || ssDigit >> remain)
+				throw std::runtime_error("Invalid token: " + token);
 			nbStack.push(digit);
 		}
 	}

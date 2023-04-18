@@ -71,7 +71,10 @@ void	BitcoinExchange::parseInputFile(std::ifstream& ifsInputFile) {
 		}
 
 		// Now the stream ss is positioned after the | delim
-		ss >> money;
+		if (!(ss >> money)) {
+			std::cout << "Error: missing number." << std::endl;
+			continue;
+		}
 		if (money < 0) {
 			std::cout << "Error: not a positive number." << std::endl;
 			continue;
@@ -82,6 +85,7 @@ void	BitcoinExchange::parseInputFile(std::ifstream& ifsInputFile) {
 		}
 		float rate = getBtcRate(date);
 		float res = rate * money;
+		// std::cout << std::fixed << std::setprecision(2);
 		std::cout << date << "=> " << money << " = " << res << std::endl;
 	}
 }
