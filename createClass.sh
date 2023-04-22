@@ -6,16 +6,19 @@ if [ -z "$1" ]; then
 fi
 
 CLASS_NAME="$1"
+UPPERCASE_CLASS_NAME=$(echo $CLASS_NAME | tr '[:lower:]' '[:upper:]')
 
 # Create Class.hpp
 cat > "${CLASS_NAME}.hpp" <<EOF
 #include <iostream>
 
-#ifndef ${CLASS_NAME}_HPP
-# define ${CLASS_NAME}_HPP
+#ifndef ${UPPERCASE_CLASS_NAME}_HPP
+# define ${UPPERCASE_CLASS_NAME}_HPP
 
 class ${CLASS_NAME} {
+
 public:
+
 	${CLASS_NAME}();
 	${CLASS_NAME}(const ${CLASS_NAME}& src);
 	~${CLASS_NAME}();
