@@ -50,7 +50,7 @@ The program will output the exchange rate calculation for each line in the input
 
 Example output:
 
-2011-01-03 => 3 = 0.9
+```2011-01-03 => 3 = 0.9
 2011-01-03 => 2 = 0.6
 2011-01-03 => 1 = 0.3
 2011-01-03 => 1.2 = 0.36
