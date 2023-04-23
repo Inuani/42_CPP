@@ -38,11 +38,12 @@ The input file should contain one date and amount per line, separated by the '|'
 
 Example:
 
-2011-01-03 | 3
+```2011-01-03 | 3
 2011-01-03 | 2
 2011-01-03 | 1
 2011-01-03 | 1.2
 2011-01-09 | 1
+```
 
 ## Output
 
@@ -55,4 +56,4 @@ Example output:
 2011-01-03 => 1 = 0.3
 2011-01-03 => 1.2 = 0.36
 2011-01-09 => 1 = 0.32
-
+```
